@@ -1,0 +1,36 @@
+name: Update Fragrance Gazette
+
+on:
+  schedule:
+    # Runs 06:00 UTC daily. Change the cron to taste — this is the ONLY
+    # place "daily" is actually enforced; everything else in this repo
+    # just reacts to being run.
+    - cron: "0 6 * * *"
+  workflow_dispatch: {}   # lets you click "Run workflow" in the Actions tab on demand
+
+permissions:
+  contents: write   # needed so the job can commit the rebuilt page back to the repo
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build the page
+        run: python fetch_and_build.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "fragrance-gazette-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/index.html
+          git diff --cached --quiet || git commit -m "Auto-update: $(date -u +%Y-%m-%d)"
+          git push
