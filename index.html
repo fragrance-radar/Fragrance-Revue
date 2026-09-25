@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Fragrance Gazette</title>
+<style>
+:root{--bg:#f7f3ea;--ink:#201c16;--mut:#6e6558;--line:#c9bfa9;--rule:#201c16;--acc:#7a2e2e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Iowan Old Style",Georgia,serif}
+.sans{font-family:ui-sans-serif,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:920px;margin:0 auto;padding:22px 16px 70px}
+.masthead{text-align:center;border-top:3px double var(--rule);border-bottom:3px double var(--rule);padding:16px 0 12px}
+.masthead .k{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--mut)}
+.masthead h1{font-size:clamp(34px,8vw,56px);margin:6px 0 4px;font-weight:400}
+.masthead .ed{font-size:12px;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;
+ display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:8px;margin-top:8px}
+h2{font-size:14px;text-transform:uppercase;letter-spacing:.16em;text-align:center;margin:38px 0 14px;position:relative}
+h2 span{background:var(--bg);padding:0 14px;position:relative;z-index:1}
+h2::before{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px solid var(--rule)}
+.item{border-bottom:1px solid var(--line);padding:10px 0}
+.item h3{font-size:17px;margin:0 0 4px;font-weight:600}
+.meta{font-size:10.5px;color:var(--mut);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+a{color:var(--acc)}
+.warn{border:1px dashed var(--line);padding:12px 14px;font-size:13px;color:var(--mut);margin-bottom:12px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{text-align:left;padding:7px 8px 7px 0;border-bottom:1px solid var(--line)}
+th{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);border-bottom:2px solid var(--rule)}
+.scroll{overflow-x:auto}
+footer{margin-top:44px;padding-top:14px;border-top:3px double var(--rule);font-size:12.5px;color:var(--mut)}
+</style>
+</head>
+<body>
+<div class="w">
+<div class="masthead">
+  <div class="k">Curated + auto-dated — see footer</div>
+  <h1>The Fragrance Gazette</h1>
+  <div class="ed"><span>Edition of 25 September 2026</span><span>Built by scheduled pipeline</span></div>
+</div>
+
+
+<h2><span>New Fragrance Launches</span></h2>
+<div class="warn">Auto-filtered from Now Smell This (by URL pattern — high confidence) and T3
+(by guessed monthly URL — lowest confidence in this pipeline). No human picks these; a keyword
+or URL rule does.</div>
+<p class="warn">Nothing matched this run. Either quiet feeds or a rule needs adjusting — check the build log.</p>
+
+<h2><span>Innovation</span></h2>
+<div class="warn">Scraped from Givaudan, IFF, Symrise and dsm-firmenich newsroom pages (medium
+confidence — selectors unverified against live markup, see README) plus Nez/Fragrantica items
+matching innovation keywords.</div>
+<p class="warn">Nothing matched this run — check the build log for which newsroom scrapers returned 0.</p>
+
+<h2><span>Top-Buyed</span></h2>
+<div class="warn">Scraped live from FragranceX's best-seller tracker. Real sales rank, one
+retailer only.</div>
+<p class="warn">Could not reach FragranceX this run — see build log.</p>
+
+<h2><span>Exhibitions &amp; Diary</span></h2>
+<div class="warn">Scraped live from TrendAroma's calendar. Perfumeaholic blocks automated
+access entirely (robots.txt) — cannot be added regardless of confidence level.</div>
+<p class="warn">Could not parse TrendAroma this run — see build log.</p>
+
+<h2><span>Trends</span></h2>
+<div class="warn"><strong>The one section that isn't feed-driven, on purpose.</strong>
+Pantone's Colour of the Year and Pinterest Predicts are annual reports, not a content stream —
+there's nothing to poll daily. </div>
+<p class="warn"></p>
+
+<div class="item"><div class="meta sans">Pantone &middot; Colour of the Year 2026</div><h3>Cloud Dancer (11-4201)</h3>
+<p>First white in the programme's history; widely mocked online as "landlord white."</p></div>
+<div class="item"><div class="meta sans">Pinterest Predicts 2026</div><h3>Scent Stacking</h3>
+<p>Layering multiple fragrances into a personal blend. Searches for "niche perfume collection" up 500% year-on-year.</p></div>
+<table style="margin-top:10px"><tr><th>Region</th><th>What's moving</th></tr>
+<tr><td>GCC / Middle East</td><td>Oud, musk, amber, saffron; Dubai emerging as a production hub, not just a market.</td></tr>
+<tr><td>Asia</td><td>Green tea/matcha, white florals; K-perfume named a category to watch.</td></tr>
+<tr><td>Europe</td><td>Florals/citrus base, absorbing oud and spice into cosmopolitan blends.</td></tr>
+<tr><td>US</td><td>Gourmand/vanilla still dominant.</td></tr>
+<tr><td>LATAM</td><td>Vanilla carries cultural weight beyond gourmand framing.</td></tr>
+<tr><td>Africa</td><td><i>Genuine gap — no 2026 ingredient-trend report found for this region.</i></td></tr>
+</table>
+<p style="font-size:11px;color:var(--mut);font-family:ui-sans-serif,sans-serif;margin-top:8px">
+This block is the one deliberately manual note in the whole page — refresh it by editing
+data/manual.json's "trend_note" field when a new annual report comes out. Everything else
+above it runs unattended.</p>
+
+
+
+<footer>
+The date above and this page's build are produced automatically, on schedule, by the pipeline
+in this repo (see <code>fetch_and_build.py</code> and <code>.github/workflows/update.yml</code>).
+The content itself — launches, top-buyed, exhibitions, innovation, trends — is hand-curated in
+<code>data/manual.json</code> from the specific sources named in each section, not pulled live
+from a raw feed. That was a deliberate choice, not a limitation: curation needs judgment a feed
+can't supply. Last built: 25 September 2026.
+</footer>
+</div>
+</body>
+</html>
